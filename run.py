@@ -23,6 +23,10 @@ high_scores = SHEET.worksheet('high_scores')
 
 
 def get_valid_word(words_data):
+    """
+    Get random word from list of words in wordlist.py
+    and will skip word if it has space or hyphen in it
+    """
     word = random.choice(words_data)
     while '-' in word or ' ' in word:
         word = random.choice(words_data)
@@ -30,8 +34,19 @@ def get_valid_word(words_data):
 
 
 def play_game():
+    """
+    The actual game function
+    The hangman game
+    The user has 10 tries to guess what word is covered behing hyphens.
+    Gets random word from get_valid_word() and uses it as the word that has
+    to be guessed by the user.
+    It collects all letters and words the user has guessed, and if the user
+    guess the word or letter twice they get to try again.
+    The function converts the game word and user input to uppercase letters.
+    
+    """
     word = get_valid_word(words)
-    word_letters = set(word) # letters in the word
+    word_letters = set(word)# letters in the word
     alphabet = set(string.ascii_uppercase)
     guessed_letters = set()
     guessed_words = set()
@@ -39,6 +54,8 @@ def play_game():
 
     while len(word_letters) > 0 and lives > 0:
         print('You have used theese letters: ', ' '.join(guessed_letters))
+        print(word)
+        print(f'You have {lives}lives left')
 
         word_list = [letter if letter in guessed_letters else '_' for letter in word]
         print('Current word: ', ' '.join(word_list))
@@ -55,6 +72,16 @@ def play_game():
                 print('You have already guessed this letter')
             else:
                 print("Invalid characters, try again!")
+        elif len(user_input) == len(word):
+            if user_input in guessed_words:
+                print('You have already guessed that word, try again!')
+            elif user_input != word:
+                print(f'{user_input} is incorrect')
+                lives -= 1
+                guessed_words.add(user_input)
+            else:
+                print('Correct answer')
+
 
 
 
