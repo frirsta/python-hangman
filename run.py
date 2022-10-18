@@ -51,6 +51,7 @@ def play_game():
     guessed_letters = set()
     guessed_words = set()
     lives = 10
+    all_word_letters = False
 
     while len(word_letters) > 0 and lives > 0:
         print('You have used theese letters: ', ' '.join(guessed_letters))
@@ -84,15 +85,13 @@ def play_game():
                 lives -= 1
                 guessed_words.add(user_input)
             else:
+                word_letters.clear()
+                all_word_letters = True
                 print('Correct answer')
-
-
-
+    if all_word_letters:
+        print('win')
+    else:
+        print('loose')
+            
 
 play_game()
-# elif len(user_input) == len(full_word) and user_input is alpha():
-#         if user_input in guessed_words:
-#             print('You have already guessed this word!')
-#             else:
-#                 lives = - 1
-#                 print(f'The letter is not in the word. You have {lives}lives left!')
