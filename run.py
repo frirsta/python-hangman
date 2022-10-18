@@ -67,7 +67,11 @@ def play_game():
                 guessed_letters.add(user_input)
                 if user_input in word_letters:
                     word_letters.remove(user_input)
-                    print('Correct letter')
+                    print('The letter is in the word')
+                else:
+                    lives -= 1
+                    guessed_letters.add(user_input)
+                    print('The letter is not in the word')
             elif user_input in guessed_letters:
                 print('You have already guessed this letter')
             else:
