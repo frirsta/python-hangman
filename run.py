@@ -94,4 +94,14 @@ def play_game():
         print('loose')
             
 
-play_game()
+def main():
+    """
+    The main function
+    This functions lets the user play again
+    """
+    play_game()
+    while input('Play again? (Y/N) ').upper() == 'Y':
+        play_game()
+
+
+main()
