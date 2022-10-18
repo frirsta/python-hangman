@@ -2,10 +2,10 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 import random
-from wordlist import words
+import string
 import gspread
+from wordlist import words
 from google.oauth2.service_account import Credentials
-print(words)
 
 
 SCOPE = [
@@ -20,3 +20,11 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("python_hangman")
 
 high_scores = SHEET.worksheet('high_scores')
+
+
+def get_valid_word(word_data):
+    word = random.choice(words)
+    while '-' in word or ' ' in word:
+        word = random.choice(word_data)
+    return word.upper()
+
