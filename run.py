@@ -50,7 +50,7 @@ def play_again(data):
     this function lets them choose if they want to play again.
     """
     if data == 0 or data is True:
-        if input('Enter "Y" to play again\nPress "Enter" to return to Home page\n').upper() == 'Y':
+        if input('\n========================================\n" Enter "Y" to play again              "\n"                                      "\n" Press "Enter" to return to Home page "\n"                                      "\n========================================\n').upper() == 'Y':
             play_game()
         else:
             return start_game()
@@ -77,45 +77,43 @@ def play_game():
 
     while len(word_letters) > 0 and lives > 0:
         sketch(lives)
+        word_list = [letter if letter in guessed_letters else '_' for letter in word]
+        print('Current word: ', ' '.join(word_list))
+
         print('\nYou have used theese letters: ', ' '.join(guessed_letters))
         print(word)
-        print(f'\nYou have {lives}lives left')
-
-        word_list = [letter if letter in guessed_letters else '_' for letter in word]
-        print('\nCurrent word: ', ' '.join(word_list))
 
         user_input = input('\nGuess the full word or with one letter:\n').upper()
-        print(user_input)
         if len(user_input) == 1:
             if user_input in alphabet - guessed_letters:
                 guessed_letters.add(user_input)
                 if user_input in word_letters:
                     word_letters.remove(user_input)
-                    print('\nThe letter is in the word                  ')
+                    print('\nThe letter is in the word')
                 else:
                     lives -= 1
                     guessed_letters.add(user_input)
-                    print('\nThe letter is not in the word                ')
+                    print('\nThe letter is not in the word')
             elif user_input in guessed_letters:
-                print('\nYou have already guessed this letter            ')
+                print('\nYou have already guessed this letter')
             else:
-                print('\nInvalid characters, try again!               ')
+                print('\nInvalid characters, try again!')
         elif len(user_input) == len(word):
             if user_input in guessed_words:
-                print('\nYou have already guessed that word, try again!       ')
+                print('\nYou have already guessed that word, try again!')
             elif user_input != word:
-                print(f'\n{user_input} is incorrect               ')
+                print(f'\n{user_input} is incorrect')
                 lives -= 1
                 guessed_words.add(user_input)
             else:
                 word_letters.clear()
                 all_word_letters = True
-                print('\nCorrect answer                      ')
+                print('\nCorrect answer')
     if all_word_letters:
-        print('\nCongratulations, you guessed the correct word!       \n')
+        print('\nCongratulations, you guessed the correct word!\n')
         play_again(all_word_letters)
     else:
-        print('\nYou lose better luck next time!              \n')
+        print('\nYou lose better luck next time!\n')
         print(sketch(0))
         play_again(lives)
 
