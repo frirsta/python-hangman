@@ -1,37 +1,26 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
 import random
 import string
-import gspread
 from wordlist import words
-from google.oauth2.service_account import Credentials
 
 
-SCOPE = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
-]
+def start_game():
+    """
+    This functions shows the instructions and
+    starts the game when the user press enter.
+    """
+    print('==================================================================')
+    print('"                         Welcome to HANGMAN                     "')
+    print('"                                                                "')
+    print('"  1.To the save the man from hanging you have to guess the word "')
+    print('"  2.The word will be covered by hyphen "-"                      "')
+    print('"  3.You have 7 tries to save the man from hanging               "')
+    print('"  4.Press "Enter" after typing your guess                       "')
+    print('"  5.You will not loose tries if you repeat your guess           "')
+    print('"                                                                "')
+    print('==================================================================')
+    while input('Press "Enter" to start game') == "":
+        play_game()
 
-CREDS = Credentials.from_service_account_file("creds.json")
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open("python_hangman")
-
-high_scores = SHEET.worksheet('high_scores')
-
-print('======================================================================')
-print('"                         Welcome to HANGMAN                         "')
-print('"                                                                    "')
-print('"1.To the save the man from hanging you have to guess the word       "')
-print('"2.The word will be covered by hyphen "-"                            "')
-print('"3.You have 7 tries to save the man from hanging                     "')
-print('"4.Press "Enter" after typing your guess                             "')
-print('"5.You will not loose a try if you guess the same letter/word twice  "')
-print('"6.If you want to play the game again press Y at the end of the game "')
-print('"                                                                    "')
-print('======================================================================')
 
 def get_valid_word(words_data):
     """
@@ -45,8 +34,12 @@ def get_valid_word(words_data):
 
 
 def play_again(data):
+    """
+    When the user has won or lost the game
+    this function lets them choose if they want to play again.
+    """
     if data == 0 or data is True:
-        while input('Play again? (Y/N) ').upper() == 'Y':
+        if input('Play again? (Y/N) ').upper() == 'Y':
             play_game()
 
 
@@ -54,16 +47,15 @@ def play_game():
     """
     The actual game function
     The hangman game
-    The user has 10 tries to guess what word is covered behing hyphens.
+    The user has 7 tries to guess what word is covered behing hyphens.
     Gets random word from get_valid_word() and uses it as the word that has
     to be guessed by the user.
     It collects all letters and words the user has guessed, and if the user
     guess the word or letter twice they get to try again.
     The function converts the game word and user input to uppercase letters.
-    
     """
     word = get_valid_word(words)
-    word_letters = set(word)# letters in the word
+    word_letters = set(word)
     alphabet = set(string.ascii_uppercase)
     guessed_letters = set()
     guessed_words = set()
@@ -79,7 +71,7 @@ def play_game():
         word_list = [letter if letter in guessed_letters else '_' for letter in word]
         print('Current word: ', ' '.join(word_list))
 
-        user_input = input('Guess the full word or with one letter:  \n').upper()
+        user_input = input('Guess the full word or with one letter:\n').upper()
         print(user_input)
         if len(user_input) == 1:
             if user_input in alphabet - guessed_letters:
@@ -113,104 +105,117 @@ def play_game():
         print('loose')
         print(sketch(0))
         play_again(lives)
-            
+
 
 def sketch(lives):
+    """
+    This functions shows the hangman be created step by step
+    depending on how many lives the user has
+    """
     if lives == 0:
-        print('Better luck next time')
-        print('\n==============================')
-        print('"         ________           "')
-        print('"         |      |           "')
-        print('"         o      |           "')
-        print('"        /|\     |           "')
-        print('"        / \     |           "')
-        print('"                |           "')
-        print('==============================')
+        print('\n                   Better luck next time                    ')
+        print('==============================================================')
+        print('"                                                            "')
+        print('"                          ________                          "')
+        print('"                          |      |                          "')
+        print('"                          o      |                          "')
+        print('"                         /|\     |                          "')
+        print('"                         / \     |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('==============================================================')
 
     elif lives == 1:
-        print('You have 1 lives')
-        print('\n==============================')
-        print('"         ________           "')
-        print('"         |      |           "')
-        print('"         o      |           "')
-        print('"        /|\     |           "')
-        print('"        /       |           "')
-        print('"                |           "')
-        print('==============================')
+        print('\n                        You have 1 lives                  \n')
+        print('==============================================================')
+        print('"                                                            "')
+        print('"                          ________                          "')
+        print('"                          |      |                          "')
+        print('"                          o      |                          "')
+        print('"                         /|\     |                          "')
+        print('"                         /       |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('==============================================================')
     elif lives == 2:
-        print('You have 2 lives')
-        print('\n==============================')
-        print('"         ________           "')
-        print('"         |      |           "')
-        print('"         o      |           "')
-        print('"        /|\     |           "')
-        print('"                |           "')
-        print('"                |           "')
-        print('==============================')
+        print('\n                        You have 2 lives                  \n')
+        print('==============================================================')
+        print('"                                                            "')
+        print('"                          ________                          "')
+        print('"                          |      |                          "')
+        print('"                          o      |                          "')
+        print('"                         /|\     |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('==============================================================')
     elif lives == 3:
-        print('You have 3 lives')
-        print('\n==============================')
-        print('"         ________           "')
-        print('"         |      |           "')
-        print('"         o      |           "')
-        print('"        /|      |           "')
-        print('"                |           "')
-        print('"                |           "')
-        print('==============================')
+        print('\n                        You have 3 lives                  \n')
+        print('==============================================================')
+        print('"                                                            "')
+        print('"                          ________                          "')
+        print('"                          |      |                          "')
+        print('"                          o      |                          "')
+        print('"                         /|      |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('==============================================================')
     elif lives == 4:
-        print('You have 4 lives')
-        print('\n==============================')
-        print('"         ________           "')
-        print('"         |      |           "')
-        print('"         o      |           "')
-        print('"        /       |           "')
-        print('"                |           "')
-        print('"                |           "')
-        print('==============================')
+        print('\n                        You have 4 lives                  \n')
+        print('==============================================================')
+        print('"                                                            "')
+        print('"                          ________                          "')
+        print('"                          |      |                          "')
+        print('"                          o      |                          "')
+        print('"                         /       |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('==============================================================')
     elif lives == 5:
-        print('You have 5 lives')
-        print('\n==============================')
-        print('"         ________           "')
-        print('"         |      |           "')
-        print('"         o      |           "')
-        print('"                |           "')
-        print('"                |           "')
-        print('"                |           "')
-        print('==============================')
+        print('\n                        You have 5 lives                  \n')
+        print('==============================================================')
+        print('"                                                            "')
+        print('"                          ________                          "')
+        print('"                          |      |                          "')
+        print('"                          o      |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('==============================================================')
     elif lives == 6:
-        print('You have 6 lives')
-        print('\n==============================')
-        print('"         ________           "')
-        print('"         |      |           "')
-        print('"                |           "')
-        print('"                |           "')
-        print('"                |           "')
-        print('"                |           "')
-        print('==============================')
+        print('\n                        You have 6 lives                  \n')
+        print('==============================================================')
+        print('"                                                            "')
+        print('"                          ________                          "')
+        print('"                          |      |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('==============================================================')
     elif lives == 7:
-        print('You have 7 lives')
-        print('\n==============================')
-        print('"         ________           "')
-        print('"                |           "')
-        print('"                |           "')
-        print('"                |           "')
-        print('"                |           "')
-        print('"                |           "')
-        print('==============================')
-              
-
-
-
+        print('\n                        You have 7 lives                  \n')
+        print('==============================================================')
+        print('"                                                            "')
+        print('"                          ________                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('"                                 |                          "')
+        print('==============================================================')
 
 
 def main():
     """
-    The main function
-    This functions lets the user play again
+    This functions starts the game
     """
-    if input('Press "Enter" to start game') == "":
-        play_game()
-        
+    start_game()
 
 
 main()
