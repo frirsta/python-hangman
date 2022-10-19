@@ -18,7 +18,7 @@ def start_game():
     print('"  5.You will not loose tries if you repeat your guess           "')
     print('"                                                                "')
     print('==================================================================')
-    while input('Press "Enter" to start game') == "":
+    while input('Press "Enter" to start game\n') == "":
         play_game()
 
 
@@ -39,7 +39,7 @@ def play_again(data):
     this function lets them choose if they want to play again.
     """
     if data == 0 or data is True:
-        if input('Play again? (Y/N) ').upper() == 'Y':
+        if input('Play again? (Y/N) \n').upper() == 'Y':
             play_game()
 
 
