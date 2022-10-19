@@ -50,7 +50,7 @@ def play_again(data):
     this function lets them choose if they want to play again.
     """
     if data == 0 or data is True:
-        if input('\n========================================\n"                                      "\n" Enter "Y" to play again              "\n"                                      "\n"                                      "\n" Press "Enter" to return to Home page "\n"                                      "\n"                                      "\n========================================\n\n\n\n').upper() == 'Y':
+        if input('\n========================================\n"                                      "\n" Enter "Y" to play again              "\n"                                      "\n"                                      "\n" Press "Enter" to return to Home page "\n"                                      "\n"                                      "\n========================================\n\n\n\n\n\n').upper() == 'Y':
             play_game()
         else:
             return start_game()
@@ -110,11 +110,11 @@ def play_game():
                 all_word_letters = True
                 print('\nCorrect answer')
     if all_word_letters:
-        print(f'\n\n\nCongratulations, you guessed the correct word!\n{word}\n')
+        print(f'\n\n\n\n\nCongratulations, you guessed the correct word!\n{word}\n')
         play_again(all_word_letters)
     else:
-        print(f'\n\n\nYou lose better luck next time!\nThe word was {word}\n')
         print(sketch(0))
+        print(f'\n\n\n\n\nYou lose better luck next time!\nThe word was {word}\n')
         play_again(lives)
 
 
