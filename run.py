@@ -21,6 +21,17 @@ SHEET = GSPREAD_CLIENT.open("python_hangman")
 
 high_scores = SHEET.worksheet('high_scores')
 
+print('======================================================================')
+print('"                         Welcome to HANGMAN                         "')
+print('"                                                                    "')
+print('"1.To the save the man from hanging you have to guess the word       "')
+print('"2.The word will be covered by hyphen "-"                            "')
+print('"3.You have 7 tries to save the man from hanging                     "')
+print('"4.Press "Enter" after typing your guess                             "')
+print('"5.You will not loose a try if you guess the same letter/word twice  "')
+print('"6.If you want to play the game again press Y at the end of the game "')
+print('"                                                                    "')
+print('======================================================================')
 
 def get_valid_word(words_data):
     """
@@ -31,6 +42,12 @@ def get_valid_word(words_data):
     while '-' in word or ' ' in word:
         word = random.choice(words_data)
     return word.upper()
+
+
+def play_again(data):
+    if data == 0 or data is True:
+        while input('Play again? (Y/N) ').upper() == 'Y':
+            play_game()
 
 
 def play_game():
@@ -91,9 +108,11 @@ def play_game():
                 print('Correct answer')
     if all_word_letters:
         print('win')
+        play_again(all_word_letters)
     else:
         print('loose')
         print(sketch(0))
+        play_again(lives)
             
 
 def sketch(lives):
@@ -189,9 +208,9 @@ def main():
     The main function
     This functions lets the user play again
     """
-    play_game()
-    while input('Play again? (Y/N) ').upper() == 'Y':
+    if input('Press "Enter" to start game') == "":
         play_game()
+        
 
 
 main()
