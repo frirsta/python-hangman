@@ -50,10 +50,11 @@ def play_game():
     alphabet = set(string.ascii_uppercase)
     guessed_letters = set()
     guessed_words = set()
-    lives = 10
+    lives = 7
     all_word_letters = False
 
     while len(word_letters) > 0 and lives > 0:
+        sketch(lives)
         print('You have used theese letters: ', ' '.join(guessed_letters))
         print(word)
         print(f'You have {lives}lives left')
@@ -92,7 +93,96 @@ def play_game():
         print('win')
     else:
         print('loose')
+        print(sketch(0))
             
+
+def sketch(lives):
+    if lives == 0:
+        print('Better luck next time')
+        print('\n==============================')
+        print('"         ________           "')
+        print('"         |      |           "')
+        print('"         o      |           "')
+        print('"        /|\     |           "')
+        print('"        / \     |           "')
+        print('"                |           "')
+        print('==============================')
+
+    elif lives == 1:
+        print('You have 1 lives')
+        print('\n==============================')
+        print('"         ________           "')
+        print('"         |      |           "')
+        print('"         o      |           "')
+        print('"        /|\     |           "')
+        print('"        /       |           "')
+        print('"                |           "')
+        print('==============================')
+    elif lives == 2:
+        print('You have 2 lives')
+        print('\n==============================')
+        print('"         ________           "')
+        print('"         |      |           "')
+        print('"         o      |           "')
+        print('"        /|\     |           "')
+        print('"                |           "')
+        print('"                |           "')
+        print('==============================')
+    elif lives == 3:
+        print('You have 3 lives')
+        print('\n==============================')
+        print('"         ________           "')
+        print('"         |      |           "')
+        print('"         o      |           "')
+        print('"        /|      |           "')
+        print('"                |           "')
+        print('"                |           "')
+        print('==============================')
+    elif lives == 4:
+        print('You have 4 lives')
+        print('\n==============================')
+        print('"         ________           "')
+        print('"         |      |           "')
+        print('"         o      |           "')
+        print('"        /       |           "')
+        print('"                |           "')
+        print('"                |           "')
+        print('==============================')
+    elif lives == 5:
+        print('You have 5 lives')
+        print('\n==============================')
+        print('"         ________           "')
+        print('"         |      |           "')
+        print('"         o      |           "')
+        print('"                |           "')
+        print('"                |           "')
+        print('"                |           "')
+        print('==============================')
+    elif lives == 6:
+        print('You have 6 lives')
+        print('\n==============================')
+        print('"         ________           "')
+        print('"         |      |           "')
+        print('"                |           "')
+        print('"                |           "')
+        print('"                |           "')
+        print('"                |           "')
+        print('==============================')
+    elif lives == 7:
+        print('You have 7 lives')
+        print('\n==============================')
+        print('"         ________           "')
+        print('"                |           "')
+        print('"                |           "')
+        print('"                |           "')
+        print('"                |           "')
+        print('"                |           "')
+        print('==============================')
+              
+
+
+
+
 
 def main():
     """
