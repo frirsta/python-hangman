@@ -82,7 +82,7 @@ def play_game():
 
         print('\nYou have used theese letters: ', ' '.join(guessed_letters))
 
-        user_input = input('\nGuess the full word or with one letter:\n').upper()
+        user_input = input('Guess the full word or with one letter:\n').upper()
         if len(user_input) == 1:
             if user_input in alphabet - guessed_letters:
                 guessed_letters.add(user_input)
