@@ -98,7 +98,7 @@ def play_game():
                 print('\nYou have already guessed this letter')
             else:
                 print('\nInvalid characters, try again!')
-        elif len(user_input) == len(word):
+        elif len(user_input) == len(word) and user_input.isalpha():
             if user_input in guessed_words:
                 print('\nYou have already guessed that word, try again!')
             elif user_input != word:
@@ -109,6 +109,8 @@ def play_game():
                 word_letters.clear()
                 all_word_letters = True
                 print('\nCorrect answer')
+        else:
+            print('\nInvalid characters, try again!')
     if all_word_letters:
         print(f'\n\n\n\n\nCongratulations, you guessed the correct word!\n{word}\n')
         play_again(all_word_letters)
