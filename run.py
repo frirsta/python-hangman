@@ -25,9 +25,7 @@ def start_game():
     print('==================================================================')
     print('                                                                  ')
     print('                                                                  ')
-    print('                                                                  ')
-    print('                                                                  ')
-    if input('Press "Enter" to start game\n') == "":
+    if input('Press "Enter" to start game\n\n\n\n\n') == "":
         play_game()
     else:
         play_game()
@@ -125,8 +123,6 @@ def sketch(lives):
     depending on how many lives the user has
     """
     if lives == 0:
-        print('                                                              ')
-        print('                                                              ')
         print('\n                   Better luck next time                    ')
         print('==============================================================')
         print('"                                                            "')
@@ -141,8 +137,6 @@ def sketch(lives):
         print('                                                              ')
         print('                                                              ')
     elif lives == 1:
-        print('                                                              ')
-        print('                                                              ')
         print('\n                        You have 1 lives                  \n')
         print('==============================================================')
         print('"                                                            "')
@@ -157,8 +151,6 @@ def sketch(lives):
         print('                                                              ')
         print('                                                              ')
     elif lives == 2:
-        print('                                                              ')
-        print('                                                              ')
         print('\n                        You have 2 lives                  \n')
         print('==============================================================')
         print('"                                                            "')
@@ -173,8 +165,6 @@ def sketch(lives):
         print('                                                              ')
         print('                                                              ')
     elif lives == 3:
-        print('                                                              ')
-        print('                                                              ')
         print('\n                        You have 3 lives                  \n')
         print('==============================================================')
         print('"                                                            "')
@@ -189,8 +179,6 @@ def sketch(lives):
         print('                                                              ')
         print('                                                              ')
     elif lives == 4:
-        print('                                                              ')
-        print('                                                              ')
         print('\n                        You have 4 lives                  \n')
         print('==============================================================')
         print('"                                                            "')
@@ -205,8 +193,6 @@ def sketch(lives):
         print('                                                              ')
         print('                                                              ')
     elif lives == 5:
-        print('                                                              ')
-        print('                                                              ')
         print('\n                        You have 5 lives                  \n')
         print('==============================================================')
         print('"                                                            "')
@@ -221,8 +207,6 @@ def sketch(lives):
         print('                                                              ')
         print('                                                              ')
     elif lives == 6:
-        print('                                                              ')
-        print('                                                              ')
         print('\n                        You have 6 lives                  \n')
         print('==============================================================')
         print('"                                                            "')
