@@ -25,7 +25,9 @@ def start_game():
     print('==================================================================')
     print('                                                                  ')
     print('                                                                  ')
-    if input('Press "Enter" to start game\n\n\n\n\n') == "":
+    print('                                                                  ')
+    print('                                                                  ')
+    if input('Press "Enter" to start game\n\n\n') == "":
         play_game()
     else:
         play_game()
@@ -47,7 +49,7 @@ def play_again(data):
     When the user has won or lost the game
     this function lets them choose if they want to play again.
     """
-    if data is True:
+    if data == 0 or data is True:
         if input('\n========================================\n"                                      "\n" Enter "Y" to play again              "\n"                                      "\n"                                      "\n" Press "Enter" to return to Home page "\n"                                      "\n"                                      "\n========================================\n\n\n\n\n\n').upper() == 'Y':
             play_game()
         else:
@@ -79,6 +81,7 @@ def play_game():
         print('Current word: ', ' '.join(word_list))
 
         print('\nYou have used theese letters: ', ' '.join(guessed_letters))
+        print(word)
 
         user_input = input('\nGuess the full word or with one letter:\n').upper()
         if len(user_input) == 1:
@@ -87,6 +90,8 @@ def play_game():
                 if user_input in word_letters:
                     word_letters.remove(user_input)
                     print('\n\nThe letter is in the word!')
+                    if len(word_letters) == 0:
+                        all_word_letters = True
                 else:
                     lives -= 1
                     guessed_letters.add(user_input)
@@ -94,7 +99,7 @@ def play_game():
             elif user_input in guessed_letters:
                 print('\nYou have already guessed this letter')
             else:
-                print('\n\nInvalid characters, try again!')
+                print('\nInvalid characters, try again!')
         elif len(user_input) == len(word) and user_input.isalpha():
             if user_input in guessed_words:
                 print('\nYou have already guessed that word, try again!')
@@ -106,14 +111,14 @@ def play_game():
                 word_letters.clear()
                 all_word_letters = True
         else:
-            print('\n\nInvalid characters, try again!')
+            print('\nInvalid characters, try again!')
     if all_word_letters:
         print(f'\n\n\n\n\nCongratulations, you guessed the correct word!\n{word}\n')
         play_again(all_word_letters)
     else:
-        sketch(lives)
+        print(sketch(0))
         print(f'\n\n\n\n\nYou lose better luck next time!\nThe word was {word}\n')
-        play_again(True)
+        play_again(lives)
 
 
 def sketch(lives):
