@@ -1,31 +1,49 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Hangman
+Hangman is a game where the player has to save the man from getting hanged. The player has to guess what word the computer has chosen for them either by guesseing one letter or the full word. The player has 7 tries to save the man. The game is made for people who just want a simple game to have fun. 
 
-Welcome frirsta,
+<img src="assets/images/all-devices.png" alt="Website mockup" title="Website mockup">
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
 
-## Reminders
+## Features
+<img src="assets/images/home_page.png" alt="Home page" title="Home page">
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+- Home page
+- List of instructions
 
-## Creating the Heroku app
+<img src="assets/images/7_lives.png" alt="7 lives" title="7 lives" width="40%">   <img src="assets/images/6_lives.png" alt="6 lives" title="6 lives" width="40%"><img src="assets/images/5_lives.png" alt="5 lives" title="5 lives" width="40%">   <img src="assets/images/4_lives.png" alt="4 lives" title="4 lives" width="40%">
+<img src="assets/images/3_lives.png" alt="3 lives" title="3 lives" width="40%">   <img src="assets/images/2_lives.png" alt="2 lives" title="2 lives" width="40%"><img src="assets/images/1_lives.png" alt="1 lives" title="1 lives" width="40%">   <img src="assets/images/last.png" alt="last page, asking player if they want to play again or go to home page" title="last page" width="40%">
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+- Game screen
+- Hangman image with body parts displayed depending on how many lives the player has
+- Hyphens covering the word the player has to guess
+- Number of lives remaining
+- What letters have been used
+- Input area for player to write letter or word they want to guess
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## Features for the future
+- Display high score
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## Technologies
+https://websitemockupgenerator.com/
+https://heroku.com/apps
+https://github.com/
+https://www.gitpod.io/
+### Languages
+- Python
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+## Testing
+<img src="assets/images/pep8.png" alt="pep8 testing" title="pep8 testing">
+This is what it looked like when I wanted to test my code.
 
-Connect your GitHub repository and deploy as normal.
+<img src="assets/images/pep8_terminal.png" alt="pep8 testing" title="pep8 testing">
+I wanted to install the tool and this is what it looked like.
 
-## Constraints
+## bugs
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
------
-Happy coding!
+## Deployment
+
+
+## Credits
+
+- word list
