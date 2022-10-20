@@ -81,7 +81,6 @@ def play_game():
         print('Current word: ', ' '.join(word_list))
 
         print('\nYou have used theese letters: ', ' '.join(guessed_letters))
-        print(word)
 
         user_input = input('\nGuess the full word or with one letter:\n').upper()
         if len(user_input) == 1:
