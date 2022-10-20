@@ -89,7 +89,7 @@ def play_game():
                 guessed_letters.add(user_input)
                 if user_input in word_letters:
                     word_letters.remove(user_input)
-                    print('\nThe letter is in the word')
+                    print('\n\nThe letter is in the word!')
                 else:
                     lives -= 1
                     guessed_letters.add(user_input)
@@ -108,7 +108,6 @@ def play_game():
             else:
                 word_letters.clear()
                 all_word_letters = True
-                print('\nCorrect answer')
         else:
             print('\nInvalid characters, try again!')
     if all_word_letters:
@@ -238,8 +237,6 @@ def sketch(lives):
         print('                                                              ')
         print('                                                              ')
     elif lives == 7:
-        print('                                                              ')
-        print('                                                              ')
         print('\n                        You have 7 lives                  \n')
         print('==============================================================')
         print('"                                                            "')
