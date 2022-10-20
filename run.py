@@ -112,9 +112,9 @@ def play_game():
         print(f'\n\n\n\n\nCongratulations, you guessed the correct word!\n{word}\n')
         play_again(all_word_letters)
     else:
-        print(sketch(0))
+        sketch(lives)
         print(f'\n\n\n\n\nYou lose better luck next time!\nThe word was {word}\n')
-        play_again(lives)
+        play_again(all_word_letters)
 
 
 def sketch(lives):
