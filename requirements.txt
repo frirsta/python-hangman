@@ -21,7 +21,7 @@ idna==3.6
 oauthlib==3.2.2
 olefile==0.47
 packaging==24.0
-pillow==10.2.0
+pillow==9.4.0
 psycopg==3.1.18
 psycopg-binary==3.1.18
 psycopg2-binary==2.9.9
