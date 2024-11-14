@@ -1,0 +1,45 @@
+{
+	"pid": 73369,
+	"date": "2024-11-14T01:04:00.487Z",
+	"port": 8080,
+	"ip": "0.0.0.0",
+	"stats": [
+		{
+			"id": null,
+			"version": {
+				"node": "v20.11.1",
+				"total": "4",
+				"app": "1.0.0"
+			},
+			"pid": 73369,
+			"thread": "",
+			"mode": "release",
+			"overload": 0,
+			"date": "2024-11-14T01:06:00.515Z",
+			"memory": 7.92,
+			"rm": 0,
+			"fm": 0,
+			"wm": 24,
+			"em": 0,
+			"mm": 0,
+			"om": 0,
+			"dm": 0,
+			"um": 0.012,
+			"pm": 0,
+			"sm": 0,
+			"cm": 0,
+			"dbrm": 0,
+			"dbwm": 0,
+			"usage": 0,
+			"requests": 2,
+			"pending": 0,
+			"external": 0,
+			"errors": 0,
+			"timeouts": 0,
+			"online": 1,
+			"uptime": 3,
+			"download": 0,
+			"upload": 0.025
+		}
+	]
+}
